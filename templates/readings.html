@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+
+    
+
+    {% for reading in readings %}
+        {{reading.time}}
+        {{reading.free_chlorine}}
+        {{reading.total_chlorine}}
+        {{reading.combined_chlorine}}
+        {{reading.ph}}
+        {{reading.water_temperature}}
+        {{reading.date}}
+    {% endfor %}
+
+{% endblock %}
