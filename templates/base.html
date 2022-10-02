@@ -46,9 +46,23 @@
             <li><a href="{{ url_for('register') }}" class="hvr-icon-drop"><i class="fa-solid fa-droplet hvr-icon"></i>Sign up</a></li>
           </ul>
     </header>
-    
+    <section>
+      <!-- flash messages -->
+      {% with messages = get_flashed_messages() %}
+          {% if messages %}
+              {% for message in messages %}
+                  <div class="row flashes">
+                    <h4 class="center-align">{{ message }}</h4>
+                  </div>
+              {% endfor %}
+          {% endif %}
+      {% endwith %}
+    </section>
+
+    <main class="container">
     {% block content %}
     {% endblock %}
+    </main>
 
     <!-- jquery cdn -->
     <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>

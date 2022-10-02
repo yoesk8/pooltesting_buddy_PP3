@@ -60,3 +60,7 @@
     -webkit-animation-timing-function: cubic-bezier(0.52, 1.64, 0.37, 0.66);
     animation-timing-function: cubic-bezier(0.52, 1.64, 0.37, 0.66);
   }
+
+  .flashes h4 {
+    line-height: 2;
+  }
