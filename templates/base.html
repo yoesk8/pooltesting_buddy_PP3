@@ -42,7 +42,7 @@
           </nav>
         <!-- mobile navbar -->
           <ul class="sidenav" id="mobile-demo">
-            <li><h4 class="center-align ">PoolTesting buddy</h4>
+            <li><h4 class="center-align brand-logo"><i class="fa-solid fa-water-ladder"></i>PoolTesting buddy</h4>
             </li>
             <li><a href="{{ url_for('get_readings') }}" class="hvr-icon-drop"><i class="fa-solid fa-droplet hvr-icon"></i>Home</a></li>
             <li><a href="#" class="hvr-icon-drop"><i class="fa-solid fa-droplet hvr-icon"></i>Pool testing guide</a></li>
@@ -52,7 +52,7 @@
             {% else %}
               <li><a href="{{ url_for('login') }}" class="hvr-icon-drop"><i class="fa-solid fa-droplet hvr-icon"></i> Log in</a></li>
               <li><a href="{{ url_for('register') }}" class="hvr-icon-drop"><i class="fa-solid fa-droplet hvr-icon"></i> Sign up</a></li>
-            {% endif %}
+          {% endif %}
           </ul>
     </header>
     <section>
