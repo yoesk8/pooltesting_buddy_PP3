@@ -1,22 +1,14 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h3 class="center-align">Sign up</h3>
+<h3 class="center-align">Log In</h3>
 <div class="row">
-    <form class="col s12 m8 offset-m2" method="POST" action="{{ url_for('register') }}">
+    <form class="col s12 m8 offset-m2" method="POST" action="{{ url_for('login') }}">
         <div class="card-panel">
-             <!-- Name -->
-             <div class="row">
-                <div class="input-field col s12">
-                    <i class="fas fa-user prefix"></i>
-                    <input id="name" name="name" type="text" minlength="2" maxlength="30" required  class="validate">
-                    <label for="name">Name</label>
-                </div>
-            </div>
             <!-- username -->
             <div class="row">
                 <div class="input-field col s12">
-                    <i class="fas fa-user-plus prefix"></i>
+                    <i class="fas fa-user-cog prefix"></i>
                     <input id="username" name="username" type="text" minlength="5" maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" required class="validate">
                     <label for="username">Username</label>
                 </div>
@@ -29,20 +21,21 @@
                     <label for="password">Password</label>
                 </div>
             </div>
-            <!-- register -->
+            <!-- Log In button -->
             <div class="row">
                 <button type="submit" class="col s12 btn-large deep-orange lighten-4">
-                    Register <i class="fas fa-sign-in-alt"></i>
+                    Log In <i class="fas fa-sign-in-alt"></i>
                 </button>
             </div>
         </div>
     </form>
 </div>
+
 <div class="row">
     <div class="col s12">
         <p class="center-align">
-            Already have an account?
-            <a href="{{ url_for('login') }}"> Log In</a>
+            Don't have an account yet?
+            <a href="{{ url_for('register') }}">Create account</a>
         </p>
     </div>
 </div>
