@@ -27,8 +27,9 @@
               <a href="{{ url_for('get_readings') }}" class="brand-logo">PoolTesting buddy<i class="fa-solid fa-water-ladder"></i></a>
               <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="fas fa-bars"></i></a>
               <ul class="right hide-on-med-and-down">
-                <li><a href="#" class="hvr-icon-drop"><i class="fa-solid fa-droplet hvr-icon"></i> Home</a></li>
+                <li><a href="{{ url_for('get_readings') }}" class="hvr-icon-drop"><i class="fa-solid fa-droplet hvr-icon"></i> Home</a></li>
                 <li><a href="{{ url_for('login') }}" class="hvr-icon-drop"><i class="fa-solid fa-droplet hvr-icon"></i> Log in</a></li>
+                <li><a href="{{ url_for('profile', username=session['user']) }}" class="hvr-icon-drop"><i class="fa-solid fa-droplet hvr-icon"></i> Profile</a></li>
                 <li><a href="#" class="hvr-icon-drop"><i class="fa-solid fa-droplet hvr-icon"></i> Log out</a></li>
                 <li><a href="#" class="hvr-icon-drop"><i class="fa-solid fa-droplet hvr-icon"></i> Pool testing guide</a></li>
                 <li><a href="{{ url_for('register') }}" class="hvr-icon-drop"><i class="fa-solid fa-droplet hvr-icon"></i> Sign up</a></li>
@@ -39,10 +40,11 @@
           <ul class="sidenav" id="mobile-demo">
             <li><h4 class="center-align ">PoolTesting buddy</h4>
             </li>
-            <li><a href="{{ url_for('get_readings') }}">Home</a></li>
+            <li><a href="{{ url_for('get_readings') }}" class="hvr-icon-drop"><i class="fa-solid fa-droplet hvr-icon"></i>Home</a></li>
             <li><a href="{{ url_for('login') }}" class="hvr-icon-drop"><i class="fa-solid fa-droplet hvr-icon"></i>Log in</a></li>
+            <li><a href="{{ url_for('profile', username=session['user']) }}" class="hvr-icon-drop"><i class="fa-solid fa-droplet hvr-icon"></i> Profile</a></li>
             <li><a href="#" class="hvr-icon-drop"><i class="fa-solid fa-droplet hvr-icon"></i>Log out</a></li>
-            <li><a href="#" class="hvr-icon-drop"><i class="fa-solid fa-droplet hvr-icon"></i>F.A.Q</a></li>
+            <li><a href="#" class="hvr-icon-drop"><i class="fa-solid fa-droplet hvr-icon"></i>Pool testing guide</a></li>
             <li><a href="{{ url_for('register') }}" class="hvr-icon-drop"><i class="fa-solid fa-droplet hvr-icon"></i>Sign up</a></li>
           </ul>
     </header>
