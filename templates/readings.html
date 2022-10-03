@@ -3,27 +3,27 @@
 
     
 
-    {% for reading in readings %}
-        {{reading.time}}
-        {{reading.free_chlorine}}
-        {{reading.total_chlorine}}
-        {{reading.combined_chlorine}}
-        {{reading.ph}}
-        {{reading.water_temperature}}
-        {{reading.date}}
-    {% endfor %}
+
     <ul class="collapsible popout ">
+        {% for reading in readings %}
         <li>
-          <div class="collapsible-header white-text darken-4 deep-orange"><i class="fas fa-caret-down"></i>First</div>
-          <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+            <div class="collapsible-header white-text darken-4 deep-orange">
+                <i class="fas fa-caret-down"></i>
+               <strong> {{reading.time}}  </strong> : {{reading.date}}
+               {% if reading.outside_parameters == "on" %}
+                   <i class="fas fa-exclamation-circle tooltipped" data-position="bottom" data-tooltip="Readings outside parameters!"></i>
+               {% else %}
+                   <i class="fas fa-duotone fa-check"></i>
+               {% endif %}
+            </div>
+            <div class="collapsible-body">
+                <strong>Free Chlorine</strong>: {{reading.free_chlorine}} <br>
+                <strong>Total Chlorine</strong>: {{reading.total_chlorine}} <br>
+                <strong>Combined Chlorine</strong>: {{reading.combined_chlorine}} <br>
+                <strong>P.H</strong>: {{reading.ph}} <br>
+                <strong>Water Temperature</strong>: {{reading.water_temperature}}
+            </div>
         </li>
-        <li>
-          <div class="collapsible-header white-text darken-4 deep-orange"><i class="fas fa-caret-down"></i>Second</div>
-          <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
-        </li>
-        <li>
-          <div class="collapsible-header white-text darken-4 deep-orange"><i class="fas fa-caret-down"></i>Third</div>
-          <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
-        </li>
-      </ul>
+         {% endfor %}
+    </ul>
 {% endblock %}
