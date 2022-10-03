@@ -64,3 +64,23 @@
   .flashes h4 {
     line-height: 2;
   }
+
+/* flexbox setup for footer */
+  body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+
+  main {
+    flex: 1 0 auto;
+  }
+
+  .page-footer{
+    padding-bottom: 3vh;
+  }
+
+  .fa-brands {
+    margin-left: 5px;
+    margin-right: 5px;
+  }
