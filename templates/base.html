@@ -31,6 +31,7 @@
                 <li><a href="#" class="hvr-icon-drop"><i class="fa-solid fa-droplet hvr-icon"></i> Pool testing guide</a></li>
                 {% if session.user %}
                   <li><a href="{{ url_for('profile', username=session['user']) }}" class="hvr-icon-drop"><i class="fa-solid fa-droplet hvr-icon"></i> Profile</a></li>
+                  <li><a href="{{ url_for('add_reading') }}" class="hvr-icon-drop"><i class="fa-solid fa-droplet hvr-icon"></i> New Reading</a></li>
                   <li><a href="{{ url_for('logout') }}" class="hvr-icon-drop"><i class="fa-solid fa-droplet hvr-icon"></i> Log out</a></li>
                 {% else %}
                   <li><a href="{{ url_for('login') }}" class="hvr-icon-drop"><i class="fa-solid fa-droplet hvr-icon"></i> Log in</a></li>
@@ -48,7 +49,9 @@
             <li><a href="#" class="hvr-icon-drop"><i class="fa-solid fa-droplet hvr-icon"></i>Pool testing guide</a></li>
             {% if session.user %}
               <li><a href="{{ url_for('profile', username=session['user']) }}" class="hvr-icon-drop"><i class="fa-solid fa-droplet hvr-icon"></i> Profile</a></li>
+              <li><a href="{{ url_for('add_reading') }}" class="hvr-icon-drop"><i class="fa-solid fa-droplet hvr-icon"></i> New Reading</a></li>
               <li><a href="{{ url_for('logout') }}" class="hvr-icon-drop"><i class="fa-solid fa-droplet hvr-icon"></i> Log out</a></li>
+              
             {% else %}
               <li><a href="{{ url_for('login') }}" class="hvr-icon-drop"><i class="fa-solid fa-droplet hvr-icon"></i> Log in</a></li>
               <li><a href="{{ url_for('register') }}" class="hvr-icon-drop"><i class="fa-solid fa-droplet hvr-icon"></i> Sign up</a></li>
