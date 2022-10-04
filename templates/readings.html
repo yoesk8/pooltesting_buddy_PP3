@@ -23,6 +23,10 @@
                 <strong>P.H</strong>: {{reading.ph}} <br>
                 <strong>Water Temperature</strong>: {{reading.water_temperature}}
                 <p><em>PoolTest completed by {{ reading.created_by }}</em></p>
+                <div class="col s3">
+                    <a href="" class="btn-small green accent-4">Edit</a>
+                    <a href="" class="btn-small red lighten-1">Delete</a>
+                </div>
             </div>
         </li>
          {% endfor %}
