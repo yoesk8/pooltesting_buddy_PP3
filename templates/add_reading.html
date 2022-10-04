@@ -5,8 +5,22 @@
   <div class="row">
       <form class="col s12" method="POST" action="">
         <div class="row">
+            <div class="input-field col s12">
+                <i class="fas fa-calendar-alt prefix"></i>
+                <input id="date" name="date" type="text" class="datepicker validate" required>
+                <label for="date">Date</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="fas fa-clock prefix"></i>
+                <input id="time" name="time" type="text" class="timepicker validate" required>
+                <label for="time">Time</label>
+            </div>
+        </div>
+        <div class="row">
             <div class="input-field col s12 m12">
-                <select class="icons">
+                <select name="free_chlorine" class="icons validate" required>
                     <option value="" disabled selected>Choose your option</option>
                     <option value="" data-icon="static/Images/under_0.5.png">0.5 or below</option>
                     <option value="" data-icon="static/Images/0.5_cl.png">1.0</option>
@@ -20,45 +34,59 @@
         </div>
         <div class="row">
             <div class="input-field col s12 m12">
-                <select class="icons">
+                <select name="total_chlorine" class="icons" required>
                     <option value="" disabled selected>Choose your option</option>
-                    <option value="" data-icon="static/Images/under_0.5.png">0.5 or below</option>
-                    <option value="" data-icon="static/Images/0.5_cl.png">1.0</option>
-                    <option value="" data-icon="static/Images/1.0_cl.png">1.5</option>
-                    <option value="" data-icon="static/Images/2.0_cl.png">2.0</option>
-                    <option value="" data-icon="static/Images/3.0_cl.png">3.0</option>
-                    <option value="" data-icon="static/Images/4.0_cl.png">4.0 or above</option>
+                    <option value="0.5" data-icon="static/Images/under_0.5.png">0.5 or below</option>
+                    <option value="1.0" data-icon="static/Images/0.5_cl.png">1.0</option>
+                    <option value="1.5" data-icon="static/Images/1.0_cl.png">1.5</option>
+                    <option value="2.0" data-icon="static/Images/2.0_cl.png">2.0</option>
+                    <option value="3.0" data-icon="static/Images/3.0_cl.png">3.0</option>
+                    <option value="4.0" data-icon="static/Images/4.0_cl.png">4.0 or above</option>
                 </select>
                 <label>Total Chlorine</label>
             </div>
         </div>
         <div class="row">
             <div class="input-field col s12 m12">
-                <select>
+                <select name="combined_chlorine" required>
                     <option value="" disabled selected>Choose your option</option>
-                    <option value="">Below 0.5</option>
-                    <option value="">0.5</option>
-                    <option value="">1.0</option>
+                    <option value="0">Below 0.5</option>
+                    <option value="0.5">0.5</option>
+                    <option value="1.0">1.0</option>
                 </select>
                 <label>Combined Chlorine</label>
             </div>
         </div>
         <div class="row">
             <div class="input-field col s12 m12">
-                <select class="icons">
+                <select name="ph" class="icons" required>
                     <option value="" disabled selected>Choose your option</option>
-                    <option value="" data-icon="static/Images/6.8_ph.png">6.8 or below</option>
-                    <option value="" data-icon="static/Images/7.0-ph.png">7.0</option>
-                    <option value="" data-icon="static/Images/7.2_ph.png">7.2</option>
-                    <option value="" data-icon="static/Images/7.4_ph.png">7.4</option>
-                    <option value="" data-icon="static/Images/7.6_ph.png">7.6</option>
-                    <option value="" data-icon="static/Images/7.8_ph.png">7.8 or above </option>
+                    <option value="6.8" data-icon="static/Images/6.8_ph.png">6.8 or below</option>
+                    <option value="7.0" data-icon="static/Images/7.0-ph.png">7.0</option>
+                    <option value="7.2" data-icon="static/Images/7.2_ph.png">7.2</option>
+                    <option value="7.4" data-icon="static/Images/7.4_ph.png">7.4</option>
+                    <option value="7.6" data-icon="static/Images/7.6_ph.png">7.6</option>
+                    <option value="7.8" data-icon="static/Images/7.8_ph.png">7.8 or above </option>
                 </select>
                 <label>p.H</label>
             </div>
         </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <!-- Switch -->
+                <div class="switch">
+                    <i class="fas fa-exclamation-circle fa-2xl"></i>
+                    <label for="outside_parameters">
+                        Readings outside parameters?
+                        <input type="checkbox" id="outside_parameters" name="outside_parameters">
+                        <span class="lever"></span>
+                    </label>
+                </div>
+            </div>
+        </div>
 
       </form>
+      
   </div>
 
 {% endblock %}
