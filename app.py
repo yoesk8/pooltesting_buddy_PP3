@@ -100,7 +100,8 @@ def logout():
 
 @app.route("/add_reading")
 def add_reading():
-    return render_template("add_reading.html")
+    types = mongo.db.pool_type.find().sort("type", 1)
+    return render_template("add_reading.html", types=types)
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
