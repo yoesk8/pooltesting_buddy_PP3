@@ -2,7 +2,7 @@
 {% block content %}
 
     
-
+<h3 class="center-align">All readings</h3>
 
     <ul class="collapsible popout ">
         {% for reading in readings %}
@@ -22,6 +22,7 @@
                 <strong>Combined Chlorine</strong>: {{reading.combined_chlorine}} <br>
                 <strong>P.H</strong>: {{reading.ph}} <br>
                 <strong>Water Temperature</strong>: {{reading.water_temperature}}
+                <p><em>PoolTest completed by {{ reading.created_by }}</em></p>
             </div>
         </li>
          {% endfor %}

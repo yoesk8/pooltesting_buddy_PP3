@@ -3,7 +3,7 @@
 
   <h3 class="center-align">Add Reading</h3>
   <div class="row">
-      <form class="col s12" method="POST" action="">
+      <form class="col s12" method="POST" action="{{ url_for('add_reading') }}">
         <div class="row">
             <div class="input-field col s6">
                 <i class="fas fa-calendar-alt prefix"></i>
@@ -16,6 +16,7 @@
                 <label for="time">Time</label>
             </div>
         </div>
+        <!-- Pool type -->
         <div class="row">
             <div class="input-field col s12 m12">
                 <select id="pool_type" name="pool_type" class="icons validate" required>
@@ -27,6 +28,7 @@
                 <label for="pool_type">Select Pool</label>
             </div>
         </div>
+        <!-- free chlorine -->
         <div class="row">
             <div class="input-field col s12 m12">
                 <select id="free_chlorine" name="free_chlorine" class="icons validate" required>
@@ -41,6 +43,7 @@
                 <label for="free_chlorine">Free Chlorine</label>
             </div>
         </div>
+        <!-- total chlorine -->
         <div class="row">
             <div class="input-field col s12 m12">
                 <select id="total_chlorine" name="total_chlorine" class="icons" required>
@@ -55,6 +58,7 @@
                 <label for="total_chlorine">Total Chlorine</label>
             </div>
         </div>
+        <!-- combined chlorine -->
         <div class="row">
             <div class="input-field col s12 m12">
                 <select id="combined_chlorine" name="combined_chlorine" required>
@@ -66,6 +70,7 @@
                 <label for="combined_chlorine">Combined Chlorine</label>
             </div>
         </div>
+        <!-- ph -->
         <div class="row">
             <div class="input-field col s12 m12">
                 <select id="ph" name="ph" class="icons" required>
@@ -80,6 +85,7 @@
                 <label for="ph">p.H</label>
             </div>
         </div>
+        <!-- water temperature -->
         <div class="row">
             <div class="input-field col s12 m12">
                 <select id="water_temperature" name="water_temperature" class="icons" required>
@@ -94,9 +100,9 @@
                 <label for="water_temperature">Water Temperature</label>
             </div>
         </div>
+        <!-- outside parameters switch -->
         <div class="row">
             <div class="input-field col s12">
-                <!-- Switch -->
                 <div class="switch">
                     <i class="fas fa-exclamation-circle fa-2xl"></i>
                     <label for="outside_parameters">
@@ -105,6 +111,14 @@
                         <span class="lever"></span>
                     </label>
                 </div>
+            </div>
+        </div>
+        <!-- submit button -->
+        <div class="row">
+            <div class="col center-align">
+                <button type="submit" class="btn-large">
+                    Add reading <i class="fas fa-plus"></i>
+                </button>
             </div>
         </div>
 

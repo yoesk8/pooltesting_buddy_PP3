@@ -98,8 +98,25 @@ def logout():
     return redirect(url_for("login"))
 
 
-@app.route("/add_reading")
+@app.route("/add_reading", methods=["GET", "POST"])
 def add_reading():
+    if request.method == "POST":
+        outside_parameters = "on" if request.form.get("outside_parameters") else "off"
+        reading = {
+            "date": request.form.get("date"),
+            "time": request.form.get("time"),
+            "free_chlorine": request.form.get("free_chlorine"),
+            "total_chlorine": request.form.get("total_chlorine"),
+            "combine_chlorine": request.form.get("combined_chlorine"),
+            "ph": request.form.get("ph"),
+            "water_temperature": request.form.get("water_temperature"),
+            "outside_parameters": outside_parameters,
+            "created_by": session["user"]
+
+        }
+        mongo.db.readings.insert_one(reading)
+        flash("Reading succesfully added")
+        return redirect(url_for("get_readings"))
     types = mongo.db.pool_type.find().sort("type", 1)
     return render_template("add_reading.html", types=types)
 
