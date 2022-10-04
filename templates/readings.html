@@ -7,7 +7,7 @@
     <ul class="collapsible popout ">
         {% for reading in readings %}
         <li>
-            <div class="collapsible-header white-text darken-4 deep-orange">
+            <div class="collapsible-header white-text orange darken-2">
                 <i class="fas fa-caret-down"></i>
                <strong> {{reading.time}}  </strong> : {{reading.date}}
                {% if reading.outside_parameters == "on" %}

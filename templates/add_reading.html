@@ -4,18 +4,60 @@
   <h3 class="center-align">Add Reading</h3>
   <div class="row">
       <form class="col s12" method="POST" action="">
-          <div class="row">
-              <div class="input-field col s12">
-                  <i class="fas fa-c prefix"></i>
-                  <input id="icon_prefix" type="text" class="validate">
-                  <label for="icon_prefix">Free Chlorine</label>
-              </div>
-              <div class="input-field col s12">
-                  <i class="fas fa-t prefix"></i>
-                  <input id="icon_telephone" type="tel" class="validate">
-                  <label for="icon_telephone">Total Chlorine</label>
-              </div>
-          </div>
+        <div class="row">
+            <div class="input-field col s12 m12">
+                <select class="icons">
+                    <option value="" disabled selected>Choose your option</option>
+                    <option value="" data-icon="static/Images/under_0.5.png">0.5 or below</option>
+                    <option value="" data-icon="static/Images/0.5_cl.png">1.0</option>
+                    <option value="" data-icon="static/Images/1.0_cl.png">1.5</option>
+                    <option value="" data-icon="static/Images/2.0_cl.png">2.0</option>
+                    <option value="" data-icon="static/Images/3.0_cl.png">3.0</option>
+                    <option value="" data-icon="static/Images/4.0_cl.png">4.0 or above</option>
+                </select>
+                <label>Free Chlorine</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12 m12">
+                <select class="icons">
+                    <option value="" disabled selected>Choose your option</option>
+                    <option value="" data-icon="static/Images/under_0.5.png">0.5 or below</option>
+                    <option value="" data-icon="static/Images/0.5_cl.png">1.0</option>
+                    <option value="" data-icon="static/Images/1.0_cl.png">1.5</option>
+                    <option value="" data-icon="static/Images/2.0_cl.png">2.0</option>
+                    <option value="" data-icon="static/Images/3.0_cl.png">3.0</option>
+                    <option value="" data-icon="static/Images/4.0_cl.png">4.0 or above</option>
+                </select>
+                <label>Total Chlorine</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12 m12">
+                <select>
+                    <option value="" disabled selected>Choose your option</option>
+                    <option value="">Below 0.5</option>
+                    <option value="">0.5</option>
+                    <option value="">1.0</option>
+                </select>
+                <label>Combined Chlorine</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12 m12">
+                <select class="icons">
+                    <option value="" disabled selected>Choose your option</option>
+                    <option value="" data-icon="static/Images/6.8_ph.png">6.8 or below</option>
+                    <option value="" data-icon="static/Images/7.0-ph.png">7.0</option>
+                    <option value="" data-icon="static/Images/7.2_ph.png">7.2</option>
+                    <option value="" data-icon="static/Images/7.4_ph.png">7.4</option>
+                    <option value="" data-icon="static/Images/7.6_ph.png">7.6</option>
+                    <option value="" data-icon="static/Images/7.8_ph.png">7.8 or above </option>
+                </select>
+                <label>p.H</label>
+            </div>
+        </div>
+
       </form>
   </div>
 
