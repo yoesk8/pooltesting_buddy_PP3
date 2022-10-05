@@ -22,7 +22,11 @@
                 <select id="pool_type" name="pool_type" class="icons validate" required>
                     <option value="" disabled selected>Choose your option</option>
                     {% for type in types %}
-                    <option value="{{ type.type }}">{{ type.type }}</option>
+                        {% if type.type == reading.pool_type %}
+                            <option value="{{ type.type }}" selected>{{ type.type }}</option>
+                        {% else %}
+                            <option value="{{ reading.type }}">{{ reading.type }}</option>
+                        {% endif %}
                     {% endfor %}
                 </select>
                 <label for="pool_type">Select Pool</label>
@@ -33,6 +37,7 @@
             <div class="input-field col s12 m12">
                 <select id="free_chlorine" name="free_chlorine" class="icons validate" required>
                     <option value="" disabled selected>Choose your option</option>
+                    
                     <option value="" data-icon="static/Images/under_0.5.png">0.5 or below</option>
                     <option value="" data-icon="static/Images/0.5_cl.png">1.0</option>
                     <option value="" data-icon="static/Images/1.0_cl.png">1.5</option>

@@ -101,13 +101,15 @@ def logout():
 @app.route("/add_reading", methods=["GET", "POST"])
 def add_reading():
     if request.method == "POST":
-        outside_parameters = "on" if request.form.get("outside_parameters") else "off"
+        outside_parameters = "on" if request.form.get(
+            "outside_parameters") else "off"
         reading = {
             "date": request.form.get("date"),
             "time": request.form.get("time"),
+            "pool_type": request.form.get("pool_type"),
             "free_chlorine": request.form.get("free_chlorine"),
             "total_chlorine": request.form.get("total_chlorine"),
-            "combine_chlorine": request.form.get("combined_chlorine"),
+            "combined_chlorine": request.form.get("combined_chlorine"),
             "ph": request.form.get("ph"),
             "water_temperature": request.form.get("water_temperature"),
             "outside_parameters": outside_parameters,
