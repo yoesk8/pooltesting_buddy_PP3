@@ -149,6 +149,13 @@ def edit_reading(reading_id):
     return render_template("edit_reading.html", reading=reading, types=types)
 
 
+@app.route("/delete_reading/<reading_id>")
+def delete_reading(reading_id):
+    mongo.db.readings.delete_one({"_id": ObjectId(reading_id)})
+    flash("Reading succesfully deleted")
+    return redirect(url_for("get_readings"))
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
