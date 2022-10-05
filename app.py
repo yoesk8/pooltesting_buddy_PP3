@@ -125,6 +125,25 @@ def add_reading():
 
 @app.route("/edit_reading/<reading_id>", methods=["GET", "POST"])
 def edit_reading(reading_id):
+    if request.method == "POST":
+        outside_parameters = "on" if request.form.get(
+            "outside_parameters") else "off"
+        submit = {"$set": {
+            "date": request.form.get("date"),
+            "time": request.form.get("time"),
+            "pool_type": request.form.get("pool_type"),
+            "free_chlorine": request.form.get("free_chlorine"),
+            "total_chlorine": request.form.get("total_chlorine"),
+            "combined_chlorine": request.form.get("combined_chlorine"),
+            "ph": request.form.get("ph"),
+            "water_temperature": request.form.get("water_temperature"),
+            "outside_parameters": outside_parameters,
+            "created_by": session["user"]
+
+        }}
+        mongo.db.readings.update_one({"_id":ObjectId(reading_id)}, submit)
+        flash("Reading succesfully updated")
+
     reading = mongo.db.readings.find_one({"_id": ObjectId(reading_id)})
     types = mongo.db.pool_type.find().sort("type", 1)
     return render_template("edit_reading.html", reading=reading, types=types)
