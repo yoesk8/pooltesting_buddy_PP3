@@ -7,12 +7,12 @@
         <div class="row">
             <div class="input-field col s6">
                 <i class="fas fa-calendar-alt prefix"></i>
-                <input id="date" name="date" type="text" class="datepicker validate" required>
+                <input id="date" value="{{ reading.date }}" name="date" type="text" class="datepicker validate" required>
                 <label for="date">Date</label>
             </div>
             <div class="input-field col s6">
                 <i class="fas fa-clock prefix"></i>
-                <input id="time" name="time" type="text" class="timepicker validate" required>
+                <input id="time" value="{{ reading.time }}" name="time" type="text" class="timepicker validate" required>
                 <label for="time">Time</label>
             </div>
         </div>
@@ -20,12 +20,12 @@
         <div class="row">
             <div class="input-field col s12 m12">
                 <select id="pool_type" name="pool_type" class="icons validate" required>
-                    <option value="" disabled selected>Choose your option</option>
+                    <option value="" disabled>Choose your option</option>
                     {% for type in types %}
                         {% if type.type == reading.pool_type %}
                             <option value="{{ type.type }}" selected>{{ type.type }}</option>
                         {% else %}
-                            <option value="{{ reading.type }}">{{ reading.type }}</option>
+                            <option value="{{ type.type }}">{{ type.type }}</option>
                         {% endif %}
                     {% endfor %}
                 </select>
@@ -36,14 +36,14 @@
         <div class="row">
             <div class="input-field col s12 m12">
                 <select id="free_chlorine" name="free_chlorine" class="icons validate" required>
-                    <option value="" disabled selected>Choose your option</option>
-                    
-                    <option value="" data-icon="static/Images/under_0.5.png">0.5 or below</option>
-                    <option value="" data-icon="static/Images/0.5_cl.png">1.0</option>
-                    <option value="" data-icon="static/Images/1.0_cl.png">1.5</option>
-                    <option value="" data-icon="static/Images/2.0_cl.png">2.0</option>
-                    <option value="" data-icon="static/Images/3.0_cl.png">3.0</option>
-                    <option value="" data-icon="static/Images/4.0_cl.png">4.0 or above</option>
+                    <option value="" disabled selected>{{ reading.free_chlorine }}</option>
+
+                    <option value="0.5" data-icon="static/Images/under_0.5.png">0.5 or below</option>
+                    <option value="1.0" data-icon="static/Images/0.5_cl.png">1.0</option>
+                    <option value="1.5" data-icon="static/Images/1.0_cl.png">1.5</option>
+                    <option value="2.0" data-icon="static/Images/2.0_cl.png">2.0</option>
+                    <option value="3.0" data-icon="static/Images/3.0_cl.png">3.0</option>
+                    <option value="4.0" data-icon="static/Images/4.0_cl.png">4.0 or above</option>
                 </select>
                 <label for="free_chlorine">Free Chlorine</label>
             </div>
@@ -52,7 +52,7 @@
         <div class="row">
             <div class="input-field col s12 m12">
                 <select id="total_chlorine" name="total_chlorine" class="icons" required>
-                    <option value="" disabled selected>Choose your option</option>
+                    <option value="" disabled selected>{{ reading.total_chlorine }}</option>
                     <option value="0.5" data-icon="static/Images/under_0.5.png">0.5 or below</option>
                     <option value="1.0" data-icon="static/Images/0.5_cl.png">1.0</option>
                     <option value="1.5" data-icon="static/Images/1.0_cl.png">1.5</option>
@@ -67,7 +67,7 @@
         <div class="row">
             <div class="input-field col s12 m12">
                 <select id="combined_chlorine" name="combined_chlorine" required>
-                    <option value="" disabled selected>Choose your option</option>
+                    <option value="" disabled selected>{{ reading.combined_chlorine }}</option>
                     <option value="0">Below 0.5</option>
                     <option value="0.5">0.5</option>
                     <option value="1.0">1.0</option>
@@ -79,7 +79,7 @@
         <div class="row">
             <div class="input-field col s12 m12">
                 <select id="ph" name="ph" class="icons" required>
-                    <option value="" disabled selected>Choose your option</option>
+                    <option value="" disabled selected>{{ reading.ph }}</option>
                     <option value="6.8" data-icon="static/Images/6.8_ph.png">6.8 or below</option>
                     <option value="7.0" data-icon="static/Images/7.0-ph.png">7.0</option>
                     <option value="7.2" data-icon="static/Images/7.2_ph.png">7.2</option>
@@ -94,7 +94,7 @@
         <div class="row">
             <div class="input-field col s12 m12">
                 <select id="water_temperature" name="water_temperature" class="icons" required>
-                    <option value="" disabled selected>Choose your option</option>
+                    <option value="" disabled selected>{{ reading.water_temperature }}</option>
                     <option value="less than 27" data-icon="static/Images/cold_face.png">Below 27 celsius</option>
                     <option value="27" data-icon="static/Images/cold_face.png">27.0 celsius</option>
                     <option value="27.5" data-icon="static/Images/perfect_face.png">27.5 celsius</option>
@@ -112,7 +112,11 @@
                     <i class="fas fa-exclamation-circle fa-2xl"></i>
                     <label for="outside_parameters">
                         Readings outside parameters?
-                        <input type="checkbox" id="outside_parameters" name="outside_parameters">
+                        {% if reading.outside_parameters == "on" %}
+                            <input type="checkbox" id="outside_parameters" name="outside_parameters" checked>
+                        {% else %}
+                            <input type="checkbox" id="outside_parameters" name="outside_parameters">
+                        {% endif %}
                         <span class="lever"></span>
                     </label>
                 </div>
@@ -121,6 +125,8 @@
         <!-- submit button -->
         <div class="row">
             <div class="col center-align">
+                <!-- cancel button -->
+                <a href="{{ url_for('get_readings') }}" class="btn-large red">Cancel <i class="fas fa-times-circle right"></i></a>
                 <button type="submit" class="btn-large">
                     Edit reading <i class="fas fa-edit"></i>
                 </button>
