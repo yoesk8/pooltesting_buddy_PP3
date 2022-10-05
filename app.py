@@ -120,6 +120,14 @@ def add_reading():
     types = mongo.db.pool_type.find().sort("type", 1)
     return render_template("add_reading.html", types=types)
 
+
+@app.route("/edit_reading/<reading_id>", methods=["GET", "POST"])
+def edit_reading(reading_id):
+    reading = mongo.db.readings.find_one({"_id": ObjectId(reading_id)})
+    types = mongo.db.pool_type.find().sort("type", 1)
+    return render_template("edit_reading.html", reading=reading, types=types)
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),

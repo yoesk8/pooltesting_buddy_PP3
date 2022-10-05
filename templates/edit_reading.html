@@ -1,0 +1,129 @@
+{% extends "base.html" %}
+{% block content %}
+
+  <h3 class="center-align">Edit Reading</h3>
+  <div class="row">
+      <form class="col s12" method="POST" action="{{ url_for('edit_reading', reading_id=reading._id) }}">
+        <div class="row">
+            <div class="input-field col s6">
+                <i class="fas fa-calendar-alt prefix"></i>
+                <input id="date" name="date" type="text" class="datepicker validate" required>
+                <label for="date">Date</label>
+            </div>
+            <div class="input-field col s6">
+                <i class="fas fa-clock prefix"></i>
+                <input id="time" name="time" type="text" class="timepicker validate" required>
+                <label for="time">Time</label>
+            </div>
+        </div>
+        <!-- Pool type -->
+        <div class="row">
+            <div class="input-field col s12 m12">
+                <select id="pool_type" name="pool_type" class="icons validate" required>
+                    <option value="" disabled selected>Choose your option</option>
+                    {% for type in types %}
+                    <option value="{{ type.type }}">{{ type.type }}</option>
+                    {% endfor %}
+                </select>
+                <label for="pool_type">Select Pool</label>
+            </div>
+        </div>
+        <!-- free chlorine -->
+        <div class="row">
+            <div class="input-field col s12 m12">
+                <select id="free_chlorine" name="free_chlorine" class="icons validate" required>
+                    <option value="" disabled selected>Choose your option</option>
+                    <option value="" data-icon="static/Images/under_0.5.png">0.5 or below</option>
+                    <option value="" data-icon="static/Images/0.5_cl.png">1.0</option>
+                    <option value="" data-icon="static/Images/1.0_cl.png">1.5</option>
+                    <option value="" data-icon="static/Images/2.0_cl.png">2.0</option>
+                    <option value="" data-icon="static/Images/3.0_cl.png">3.0</option>
+                    <option value="" data-icon="static/Images/4.0_cl.png">4.0 or above</option>
+                </select>
+                <label for="free_chlorine">Free Chlorine</label>
+            </div>
+        </div>
+        <!-- total chlorine -->
+        <div class="row">
+            <div class="input-field col s12 m12">
+                <select id="total_chlorine" name="total_chlorine" class="icons" required>
+                    <option value="" disabled selected>Choose your option</option>
+                    <option value="0.5" data-icon="static/Images/under_0.5.png">0.5 or below</option>
+                    <option value="1.0" data-icon="static/Images/0.5_cl.png">1.0</option>
+                    <option value="1.5" data-icon="static/Images/1.0_cl.png">1.5</option>
+                    <option value="2.0" data-icon="static/Images/2.0_cl.png">2.0</option>
+                    <option value="3.0" data-icon="static/Images/3.0_cl.png">3.0</option>
+                    <option value="4.0" data-icon="static/Images/4.0_cl.png">4.0 or above</option>
+                </select>
+                <label for="total_chlorine">Total Chlorine</label>
+            </div>
+        </div>
+        <!-- combined chlorine -->
+        <div class="row">
+            <div class="input-field col s12 m12">
+                <select id="combined_chlorine" name="combined_chlorine" required>
+                    <option value="" disabled selected>Choose your option</option>
+                    <option value="0">Below 0.5</option>
+                    <option value="0.5">0.5</option>
+                    <option value="1.0">1.0</option>
+                </select>
+                <label for="combined_chlorine">Combined Chlorine</label>
+            </div>
+        </div>
+        <!-- ph -->
+        <div class="row">
+            <div class="input-field col s12 m12">
+                <select id="ph" name="ph" class="icons" required>
+                    <option value="" disabled selected>Choose your option</option>
+                    <option value="6.8" data-icon="static/Images/6.8_ph.png">6.8 or below</option>
+                    <option value="7.0" data-icon="static/Images/7.0-ph.png">7.0</option>
+                    <option value="7.2" data-icon="static/Images/7.2_ph.png">7.2</option>
+                    <option value="7.4" data-icon="static/Images/7.4_ph.png">7.4</option>
+                    <option value="7.6" data-icon="static/Images/7.6_ph.png">7.6</option>
+                    <option value="7.8" data-icon="static/Images/7.8_ph.png">7.8 or above </option>
+                </select>
+                <label for="ph">p.H</label>
+            </div>
+        </div>
+        <!-- water temperature -->
+        <div class="row">
+            <div class="input-field col s12 m12">
+                <select id="water_temperature" name="water_temperature" class="icons" required>
+                    <option value="" disabled selected>Choose your option</option>
+                    <option value="less than 27" data-icon="static/Images/cold_face.png">Below 27 celsius</option>
+                    <option value="27" data-icon="static/Images/cold_face.png">27.0 celsius</option>
+                    <option value="27.5" data-icon="static/Images/perfect_face.png">27.5 celsius</option>
+                    <option value="28" data-icon="static/Images/perfect_face.png">28.0 celsius</option>
+                    <option value="28.5" data-icon="static/Images/perfect_face.png">28.5 celsius</option>
+                    <option value="29" data-icon="static/Images/hot_face.png">29 celsius</option>
+                </select>
+                <label for="water_temperature">Water Temperature</label>
+            </div>
+        </div>
+        <!-- outside parameters switch -->
+        <div class="row">
+            <div class="input-field col s12">
+                <div class="switch">
+                    <i class="fas fa-exclamation-circle fa-2xl"></i>
+                    <label for="outside_parameters">
+                        Readings outside parameters?
+                        <input type="checkbox" id="outside_parameters" name="outside_parameters">
+                        <span class="lever"></span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <!-- submit button -->
+        <div class="row">
+            <div class="col center-align">
+                <button type="submit" class="btn-large">
+                    Edit reading <i class="fas fa-edit"></i>
+                </button>
+            </div>
+        </div>
+
+      </form>
+      
+  </div>
+
+{% endblock %}
