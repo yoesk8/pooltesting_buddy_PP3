@@ -85,6 +85,15 @@
     margin-right: 5px;
   }
 
-  .c-image {
-    max-height: 30vh;
+/* media query to get rid of brand logo on small devices */
+
+  @media only screen and (max-width: 800px)  {
+    .brand-logo {
+      display: none !important;
+    }
   }
+
+  .parallax-container {
+    height: 60vh;
+  }
+      

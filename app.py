@@ -24,6 +24,11 @@ def get_readings():
     return render_template("readings.html", readings=readings)
 
 
+@app.route("/faq")
+def faq():
+    return render_template("faq.html")
+
+
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":

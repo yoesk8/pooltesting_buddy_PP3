@@ -11,7 +11,7 @@ $(document).ready(function(){
           done: "Select"
       }
   });
-  $('.fixed-action-btn').floatingActionButton();
+  $('.parallax').parallax();
     $('.timepicker').timepicker();
     validateMaterializeSelect();
     function validateMaterializeSelect() {
