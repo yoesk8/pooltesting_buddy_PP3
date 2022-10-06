@@ -50,7 +50,7 @@ def register():
         # put the newly created user into 'session' cookie
         session["user"] = request.form.get("username").lower()
         flash("Registration Successful!")
-        return redirect(url_for("readings", username=session["user"]))
+        return redirect(url_for("get_readings", username=session["user"]))
     return render_template("register.html")
 
 
