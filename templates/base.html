@@ -28,9 +28,8 @@
               <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="fas fa-bars"></i></a>
               <ul class="right hide-on-med-and-down">
                 <li><a href="{{ url_for('get_readings') }}" class="hvr-icon-drop"><i class="fa-solid fa-droplet hvr-icon"></i> Home</a></li>
-                <li><a href="#" class="hvr-icon-drop"><i class="fa-solid fa-droplet hvr-icon"></i> Pool testing guide</a></li>
                 {% if session.user %}
-                  <li><a href="{{ url_for('profile', username=session['user']) }}" class="hvr-icon-drop"><i class="fa-solid fa-droplet hvr-icon"></i> Profile</a></li>
+                  <li><a href="#" class="hvr-icon-drop"><i class="fa-solid fa-droplet hvr-icon"></i> Pool testing guide</a></li>
                   <li><a href="{{ url_for('add_reading') }}" class="hvr-icon-drop"><i class="fa-solid fa-droplet hvr-icon"></i> New Reading</a></li>
                   <li><a href="{{ url_for('logout') }}" class="hvr-icon-drop"><i class="fa-solid fa-droplet hvr-icon"></i> Log out</a></li>
                 {% else %}
@@ -48,7 +47,6 @@
             <li><a href="{{ url_for('get_readings') }}" class="hvr-icon-drop"><i class="fa-solid fa-droplet hvr-icon"></i>Home</a></li>
             <li><a href="#" class="hvr-icon-drop"><i class="fa-solid fa-droplet hvr-icon"></i>Pool testing guide</a></li>
             {% if session.user %}
-              <li><a href="{{ url_for('profile', username=session['user']) }}" class="hvr-icon-drop"><i class="fa-solid fa-droplet hvr-icon"></i> Profile</a></li>
               <li><a href="{{ url_for('add_reading') }}" class="hvr-icon-drop"><i class="fa-solid fa-droplet hvr-icon"></i> New Reading</a></li>
               <li><a href="{{ url_for('logout') }}" class="hvr-icon-drop"><i class="fa-solid fa-droplet hvr-icon"></i> Log out</a></li>
               
