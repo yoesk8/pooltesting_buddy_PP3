@@ -19,7 +19,7 @@
         <!-- Pool type -->
         <div class="row">
             <div class="input-field col s12 m12">
-                <select id="pool_type" name="pool_type" class="icons validate" required>
+                <select id="pool_type" name="pool_type" class="validate" required>
                     <option value="" disabled>Choose your option</option>
                     {% for type in types %}
                         {% if type.type == reading.pool_type %}
@@ -35,15 +35,14 @@
         <!-- free chlorine -->
         <div class="row">
             <div class="input-field col s12 m12">
-                <select id="free_chlorine" name="free_chlorine" class="icons validate" required>
-                    <option value="" disabled selected>{{ reading.free_chlorine }}</option>
-
-                    <option value="0.5" data-icon="static/Images/under_0.5.png">0.5 or below</option>
-                    <option value="1.0" data-icon="static/Images/0.5_cl.png">1.0</option>
-                    <option value="1.5" data-icon="static/Images/1.0_cl.png">1.5</option>
-                    <option value="2.0" data-icon="static/Images/2.0_cl.png">2.0</option>
-                    <option value="3.0" data-icon="static/Images/3.0_cl.png">3.0</option>
-                    <option value="4.0" data-icon="static/Images/4.0_cl.png">4.0 or above</option>
+                <select id="free_chlorine" name="free_chlorine" required>
+                    <option value="{{ reading.free_chlorine }}" disabled selected>{{ reading.free_chlorine }}</option>
+                    <option value="0.5">0.5 or below</option>
+                    <option value="1.0">1.0</option>
+                    <option value="1.5">1.5</option>
+                    <option value="2.0">2.0</option>
+                    <option value="3.0">3.0</option>
+                    <option value="4.0">4.0 or above</option>
                 </select>
                 <label for="free_chlorine">Free Chlorine</label>
             </div>
@@ -51,14 +50,14 @@
         <!-- total chlorine -->
         <div class="row">
             <div class="input-field col s12 m12">
-                <select id="total_chlorine" name="total_chlorine" class="icons" required>
-                    <option value="" disabled selected>{{ reading.total_chlorine }}</option>
-                    <option value="0.5" data-icon="static/Images/under_0.5.png">0.5 or below</option>
-                    <option value="1.0" data-icon="static/Images/0.5_cl.png">1.0</option>
-                    <option value="1.5" data-icon="static/Images/1.0_cl.png">1.5</option>
-                    <option value="2.0" data-icon="static/Images/2.0_cl.png">2.0</option>
-                    <option value="3.0" data-icon="static/Images/3.0_cl.png">3.0</option>
-                    <option value="4.0" data-icon="static/Images/4.0_cl.png">4.0 or above</option>
+                <select id="total_chlorine" name="total_chlorine" required>
+                    <option value="{{ reading.total_chlorine }}" disabled selected>{{ reading.total_chlorine }}</option>
+                    <option value="0.5">0.5 or below</option>
+                    <option value="1.0">1.0</option>
+                    <option value="1.5">1.5</option>
+                    <option value="2.0">2.0</option>
+                    <option value="3.0">3.0</option>
+                    <option value="4.0">4.0 or above</option>
                 </select>
                 <label for="total_chlorine">Total Chlorine</label>
             </div>
@@ -78,14 +77,14 @@
         <!-- ph -->
         <div class="row">
             <div class="input-field col s12 m12">
-                <select id="ph" name="ph" class="icons" required>
+                <select id="ph" name="ph" required>
                     <option value="" disabled selected>{{ reading.ph }}</option>
-                    <option value="6.8" data-icon="static/Images/6.8_ph.png">6.8 or below</option>
-                    <option value="7.0" data-icon="static/Images/7.0-ph.png">7.0</option>
-                    <option value="7.2" data-icon="static/Images/7.2_ph.png">7.2</option>
-                    <option value="7.4" data-icon="static/Images/7.4_ph.png">7.4</option>
-                    <option value="7.6" data-icon="static/Images/7.6_ph.png">7.6</option>
-                    <option value="7.8" data-icon="static/Images/7.8_ph.png">7.8 or above </option>
+                    <option value="6.8">6.8 or below</option>
+                    <option value="7.0">7.0</option>
+                    <option value="7.2">7.2</option>
+                    <option value="7.4">7.4</option>
+                    <option value="7.6">7.6</option>
+                    <option value="7.8">7.8 or above </option>
                 </select>
                 <label for="ph">p.H</label>
             </div>
@@ -93,14 +92,14 @@
         <!-- water temperature -->
         <div class="row">
             <div class="input-field col s12 m12">
-                <select id="water_temperature" name="water_temperature" class="icons" required>
+                <select id="water_temperature" name="water_temperature" required>
                     <option value="" disabled selected>{{ reading.water_temperature }}</option>
-                    <option value="less than 27" data-icon="static/Images/cold_face.png">Below 27 celsius</option>
-                    <option value="27" data-icon="static/Images/cold_face.png">27.0 celsius</option>
-                    <option value="27.5" data-icon="static/Images/perfect_face.png">27.5 celsius</option>
-                    <option value="28" data-icon="static/Images/perfect_face.png">28.0 celsius</option>
-                    <option value="28.5" data-icon="static/Images/perfect_face.png">28.5 celsius</option>
-                    <option value="29" data-icon="static/Images/hot_face.png">29 celsius</option>
+                    <option value="less than 27">Below 27 celsius</option>
+                    <option value="27">27.0 celsius</option>
+                    <option value="27.5">27.5 celsius</option>
+                    <option value="28">28.0 celsius</option>
+                    <option value="28.5">28.5 celsius</option>
+                    <option value="29">29 celsius</option>
                 </select>
                 <label for="water_temperature">Water Temperature</label>
             </div>

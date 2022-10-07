@@ -85,7 +85,7 @@
     margin-right: 5px;
   }
 
-/* media query to get rid of brand logo on small devices */
+/* media query for small devices */
 
   @media only screen and (max-width: 800px)  {
     .brand-logo {

@@ -32,7 +32,7 @@ def faq():
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":
-        #check if username already exists in database to prevent duplicates
+        # check if username already exists in database to prevent duplicates
         existing_user = mongo.db.users.find_one(
             {"username": request.form.get("username").lower()})
 
@@ -64,11 +64,11 @@ def login():
         if existing_user:
             # check if password matches
             if check_password_hash(
-                existing_user["password"], request.form.get("password")):
-                    session["user"] = request.form.get("username").lower()
-                    flash("Welcome, {}".format(
-                        request.form.get("username")))
-                    return redirect(url_for("get_readings"))
+                    existing_user["password"], request.form.get("password")):
+                        session["user"] = request.form.get("username").lower()
+                        flash("Welcome, {}".format(
+                            request.form.get("username")))
+                        return redirect(url_for("get_readings"))
             else:
                 # invalid password
                 flash("Incorrect Username and/or Password")
@@ -80,8 +80,6 @@ def login():
             return redirect(url_for("login"))
 
     return render_template("login.html")
-
-
 
 
 @app.route("/logout")
@@ -135,7 +133,7 @@ def edit_reading(reading_id):
             "created_by": session["user"]
 
         }}
-        mongo.db.readings.update_one({"_id":ObjectId(reading_id)}, submit)
+        mongo.db.readings.update_one({"_id": ObjectId(reading_id)}, submit)
         flash("Reading succesfully updated")
 
     reading = mongo.db.readings.find_one({"_id": ObjectId(reading_id)})
@@ -152,5 +150,4 @@ def delete_reading(reading_id):
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
-            port=int(os.environ.get("PORT")),
-            debug=False)
+            port=int(os.environ.get("PORT")), debug=False)

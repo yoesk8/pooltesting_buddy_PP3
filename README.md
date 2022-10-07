@@ -140,8 +140,6 @@ The core feature of PoolTest buddy is a log allowing users to record their compl
 
 ### Pool test Management
 
-A routine in Fitrio is a set of three exercises with an associated number of repetitions for each. Users select a routine whenever they log a workout.
-
 
 * By design, users cannot edit or delete the pool test records, as this prevents altering of previous records which could cause issues. However, the ‘admin’ user account can add, edit or delete records. This allows the site admin to make changes to the any error a normal user might have comitted while also adding a barrier to avoid dishonest behaviour.
 
@@ -262,7 +260,7 @@ The following features could be added in the future, given more development time
 
 ## Testing
 
-Please see [TESTING.md](TESTING.md) for details of tests performed and bugs fixed.
+
 
 ***
 

@@ -39,29 +39,9 @@
     </ul>
     <!-- If user is not logged in or doesn't have an account display this -->
 {% else %}
-<!-- <div class="row">
-    <div class="col s12 ">
-      <div class="card ">
-        <div class="card-image">
-          <img class="c-image" src="static/Images/swimming_pool.jpg">
-          <span class="card-title darken-4"><h3>Welcome to PoolTesting Buddy 1.0!</h3></span>
-        </div>
-        <div class="card-content">
-          <p><em> <strong> PoolTesting buddy </strong></em> is a web app that allows you to keep track of your pool testing records,
-             getting rid of paper sheets that get lost, wet or drawned upon by cheeky lifeguards. <br><br>
-            Need a refresher on how to do a Pool test? <br><br> 
-            No problem! Once you log in or sign up you can check our "Pool Testing guide" on the menu
-            </p>
-        </div>
-        <div class="card-action">
-          <a class="btn-large orange accent-2" href="{{ url_for('login') }}">Log In</a>
-        </div>
-      </div>
-    </div>
-  </div> -->
 
   <div class="parallax-container">
-    <div class="parallax"><img src="static/Images/swimming_pool.jpg"></div>
+    <div class="parallax"><img src="static/Images/swimming_pool.jpg" alt="swimming-pool"></div>
   </div>
   <div class="section white">
     <div class="row container">
@@ -77,7 +57,7 @@
     </div>
   </div>
   <div class="parallax-container">
-    <div class="parallax"><img src="static/Images/swimming_pool.jpg"></div>
+    <div class="parallax"><img src="static/Images/swimming_pool.jpg" alt="swimming-pool"></div>
   </div>
 {% endif %}
 {% endblock %}
