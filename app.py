@@ -20,6 +20,7 @@ mongo = PyMongo(app)
 @app.route("/")
 @app.route("/get_readings")
 def get_readings():
+    # query database for home page named readings
     readings = mongo.db.readings.find()
     return render_template("readings.html", readings=readings)
 
@@ -92,6 +93,7 @@ def logout():
 
 @app.route("/add_reading", methods=["GET", "POST"])
 def add_reading():
+    # Send user input reading to the reading table as a dictionary
     if request.method == "POST":
         outside_parameters = "on" if request.form.get(
             "outside_parameters") else "off"
@@ -143,6 +145,7 @@ def edit_reading(reading_id):
 
 @app.route("/delete_reading/<reading_id>")
 def delete_reading(reading_id):
+    # Delete selected reading from reading table in database
     mongo.db.readings.delete_one({"_id": ObjectId(reading_id)})
     flash("Reading succesfully deleted")
     return redirect(url_for("get_readings"))

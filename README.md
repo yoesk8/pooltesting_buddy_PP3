@@ -80,6 +80,8 @@ The site uses the Materialize framework. I used Materialize's orange colour pall
 
 * The “Pool testing guide” section of the Getting Started page is illustrated with fontawesome icons as well.
 
+* [Unsplash ](https://unsplash.com/) I used a swimming pool image used for the home page.(https://unsplash.com/photos/nq18MYhxdGs)
+
 ### Wireframes
 
 The site is responsively designed to adapt to the user's viewing device.
@@ -210,7 +212,7 @@ The following features could be added in the future, given more development time
 
 ### 2. Additional Log Filters
 
-* Admin user can to be able to filter the log page by date range.
+* Admin user to be able to filter the log page by date range.
 
 
 ### 3. Simplification of the add readings form
@@ -242,7 +244,7 @@ The following features could be added in the future, given more development time
 
 1. [GitHub](https://github.com/) - Used for version control.
 2. [GitPod](https://gitpod.io/) - Used to write all code and test before deploying to GitHub.
-3. [Balsamiq](https://balsamiq.com/) - Used to produce design wireframes.
+3. [Mockplus](https://mockplus.com/) - Used to produce design wireframes.
 4. [Materialize](https://materializecss.com/) - Materialize CSS framework used extensively to create layout and styling of site.
 5. [jQuery](https://jquery.com/) - Used to initialise Materialize components and validate select elements.
 6. [Python 3.8](https://www.python.org/) - Used to code the application.
@@ -259,6 +261,82 @@ The following features could be added in the future, given more development time
 ***
 
 ## Testing
+
+## Functionality testing 
+
+ I used Chrome developer tools throughout the project for testing and solving problems with responsiveness and style issues.
+
+
+## Compatibility testing
+ Site was tested across multiple virtual mobile devices and browsers. I checked all supported devices in Chrome developer tools. 
+ 
+ I tested on hardware devices such as: Ipad air with iOS, Iphone 13 mini with iOS 15.4, Macbook air with MacOS and Surface Pro with windows 10
+
+
+---
+## Issues found during site development
+
+* ### Edit reading page not pre-populating the previously selection
+
+
+![testing-issue-1](static/documentation_images/pre_populating_edit.png)
+
+When clicking on the 'edit' button on a previously recorded pool test, I noticed that the right fields were not being selected and on some ocassions not even appearing on the select fields
+
+> I fixed this by adding the 'value' attribute to the options tag and populating it with the correct Jinja expression to access the relevant data.
+
+
+
+* ### Logo overflowing on small and extra small devices
+
+> I fixed this by adding a media query which removes the logo completely by setting the display to 'none' when in small devices.
+
+![resolved4](static/documentation_images/media_query_fix.png)
+
+
+* ### Login not working.
+
+![testing_issue_2](static/documentation_images/endpoint_non_existent.JPG)
+
+This one was a tough one for me, as I changed the name of some of the templates, the endpoint was not being built properly as it was still pointing to non-existing pages.
+
+> I fixed this by updating the relevant python functions with the new names of the html pages that flask was pointing to.
+
+![resolved](assets/readme-images/counter1.png)
+
+
+## Performance testing
+
+I run [Lighthouse](https://developers.google.com/web/tools/lighthouse/) tool to check performance of the website.
+Screenshots are presented below:
+
+
+Final results:
+![performance_final](static/documentation_images/light_house_testing.png)
+
+I noticed that this tests scores vary from time to time and depends on external libraries as well. 
+
+
+
+## Code Validation
+ At the end of the project I used three websites to validate my code:
+ 
+ * [W3C CSS Validator](https://jigsaw.w3.org/css-validator/) to validate CSS
+
+ ![CSS validator](static/documentation_images/css_validation.png)
+
+ * [Nu Html Checker](https://validator.w3.org/) to test HTML
+
+ ![HTML validator](static/documentation_images/home_html_validation.png)
+
+ * [JShint](https://jshint.com/) to test JavaScript
+
+ ![JS validator](static/documentation_images/javascript_va;idation.png)
+ 
+ * [Pep8](https://pypi.org/project/pep8/) to test python
+
+ ![JS validator](static/documentation_images/pep8_validation.png)
+
 
 
 
@@ -286,13 +364,13 @@ If you have Git installed on your computer, you can clone the project by followi
 6. Type `git clone`, and then paste the URL you copied in Step 3.
 
 ```
-$ git clone https://github.com/lmjh/fitness-tracker.git
+$ git clone https://github.com/yoesk8/pooltesting_buddy_PP3
 ```
 7. Press Enter. Your local clone will be created.
 
 Alternatively, if using Gitpod, you can click below to create your own workspace using this repository.
 
-[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/lmjh/fitness-tracker)
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://github.com/yoesk8/pooltesting_buddy_PP3)
 
 ### Database Setup
 
@@ -300,40 +378,39 @@ The project uses MongoDB, so for either local or remote deployment you'll need a
 
 1. If you don't have a MongoDB account, sign up for a free account at [MongoDB](https://www.mongodb.com/).
 2. If you don't have any clusters, create a new cluster.
-3. Add a new database to your cluster with the name: **fitness_tracker**
-4. The fitness_tracker database should have three collections with the following setup:
+3. Add a new database to your cluster with the name: **pooltesting_buddy**
+4. The pooltesting_buddy database should have three collections with the following setup:
 
 **users**
 ```
 _id: <ObjectId>
 username: <string>
-email: <string>
+name: <string>
 password: <string>
-shared_routines: <array>
 ```
 
-**routines**
+**pool_type**
 ```
 _id: <ObjectId>
-routine_name: <string>
-exercise_one: <string>
-exercise_one_reps: <int32>
-exercise_two: <string>
-exercise_two_reps: <int32>
-exercise_three: <string>
-exercise_three_reps: <int32>
-username: <string>
+max_batherload: <string>
+type: <string>
 ```
 
-**workout_logs**
+**readings**
 ```
 _id: <ObjectId>
-routine_id: <ObjectId>
-date: <date>
-notes: <string>
-sets: <int32>
-username: <string>
+date: <string>
+time: <string>
+pool_type: <string>
+free_chlorine: <string>
+total_chlorine: <string>
+combined_chlorine: <string>
+ph: <string>
+water_temperature: <string>
+outside_parameters: <string>
 ```
+
+
 
 In order to connect to the database, you'll need to create a user and generate a MongoDB URI. 
 
@@ -391,7 +468,7 @@ os.environ.setdefault("ENV_DEBUG", "True")
 
 ### Remote Deployment
 
-The app is currently deployed on Heroku [here](http://fitness-tracker-lmjh.herokuapp.com/).
+The app is currently deployed on Heroku [here](https://pooltesting-buddy.herokuapp.com/).
 
 To deploy your own copy of the app, follow the steps below:
 
@@ -427,8 +504,6 @@ ENV_DEBUG:
 
 ## Other Credits and Acknowledgements
 
-* My Code Institute mentor, [Tim Nelson](https://tim.2bn.dev/), for his very helpful advice and feedback throughout the project, as well as the Javascript code to validate the Materialize select elements.
 * [Code Institute](https://codeinstitute.net/) for their helpful lessons and reference materials.
 * [Code Institute Sample README](https://github.com/Code-Institute-Solutions/SampleREADME/blob/master/README.md) for the structure of this project's documentation and parts of the GitHub forking and cloning processes.
-* [This blog post](https://www.patricksoftwareblog.com/creating-charts-with-chart-js-in-a-flask-application/) from Patrick's Software Blog provided some very helpful information on generating chart.js graphs with data from a Flask application.
-* [This YouTube video](https://www.youtube.com/watch?v=H1y66SPBlRI) from the channel Chart JS provided some very helpful information on setting up a chart.js graph using datetime data for one of the axes.
+
