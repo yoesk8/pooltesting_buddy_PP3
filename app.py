@@ -137,6 +137,7 @@ def edit_reading(reading_id):
         }}
         mongo.db.readings.update_one({"_id": ObjectId(reading_id)}, submit)
         flash("Reading succesfully updated")
+        return redirect(url_for("get_readings"))
 
     reading = mongo.db.readings.find_one({"_id": ObjectId(reading_id)})
     types = mongo.db.pool_type.find().sort("type", 1)
