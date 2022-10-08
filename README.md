@@ -170,34 +170,7 @@ New users are adviced to visit the F.A.Q page at the home screen. The FAQ page h
 
 PoolTesting buddy uses the MongoDB non-relational database. Data is divided into three collections, with the following schema:
 
-**users**
-```
-_id: <ObjectId>
-username: <string>
-name: <string>
-password: <string>
-```
-
-**pool_type**
-```
-_id: <ObjectId>
-max_batherload: <string>
-type: <string>
-```
-
-**readings**
-```
-_id: <ObjectId>
-date: <string>
-time: <string>
-pool_type: <string>
-free_chlorine: <string>
-total_chlorine: <string>
-combined_chlorine: <string>
-ph: <string>
-water_temperature: <string>
-outside_parameters: <string>
-```
+![Datbase diagram](static/documentation_images/database_design.png)
 
 ***
 
