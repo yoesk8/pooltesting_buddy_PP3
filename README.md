@@ -2,7 +2,7 @@
 
 ![Mockup of PoolTesting buddy on desktop, tablet and mobile](static/documentation_images/am_I_responsive.png)
 
-[Visit the live site](http://pooltesting-buddy.herokuapp.com/).
+[Visit the live site](https://pooltesting-buddy.onrender.com).
 
 The purpose of this application is to help health clubs and leisure centres  keep an up to date record of all pool tests completed througout the day to day operations.
 
